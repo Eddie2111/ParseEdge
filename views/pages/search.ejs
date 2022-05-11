@@ -1,0 +1,38 @@
+<%- include("../partials/head") %>
+
+<div class="container">
+    <div class="row">
+
+      <div class="col">
+            <form action="/search" method="post">
+            <div class="card" style="width:18rem">
+                <label class="label"> Search by Name </label>
+                <input type="text" name="name" placeholder="name">
+            </div>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+
+      <div class="col">
+
+        <div class="card" style="width:18rem">
+            <label class="label"> Search by Service </label>
+            <input type="text" name="service" placeholder="service name">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+      </div>
+
+    </div>
+    <center>
+    <table class="table" style="width:28rem">
+        <tr>
+          <th>Name </th>
+          <th>Service </th>
+        </tr>
+        <tr>
+          <td><%=result.firstname%> <%=result.lastname%></td>
+          <td><%=result.service%></td>
+        </tr>
+      </table>
+      </center>
+</div>

@@ -1,0 +1,70 @@
+<% //not empty %>
+
+<%- include("../partials/head")%>
+
+
+<br/><br/><br/>
+<div class="container">
+    
+<form action="/registration" method="post" class="form">
+
+    <div class="container">
+        <div class="row">
+          <div class="col">
+
+            <section class="section card" style="border:15px solid white;">
+                <label>Select a service : </label>
+                <input class="input" type="text" name="service" placeholder="Your service">
+                <label>Type of service : </label>
+                <input class="input" type="text" name="serviceName" placeholder="Type of service">
+                <label>Name of your service : </label>
+                <input class="input" type="text" name="serviceCompany" placeholder="Your service company name">
+                <label>Years of experience : </label>
+                <input class="input" type="text" name="serviceYears" placeholder="years of experience">
+                <label>Your location : </label>
+                <input class="input" type="text" name="location" placeholder="location">
+                </section>
+
+          </div>
+          <div class="col">
+            <section class="section card" style="border:15px solid white">
+                <label>Upload your works [images]:</label>
+                <input type="file">
+                <label>Your portfolio link:</label>
+                <input type="text" class="input" name="portfolio" placeholder:"https://www.yourportfolio.com">
+                </section>
+          </div>
+          <div class="col">
+            <section class="section card" style="border:15px solid white">
+                <label>First name</label>
+                <input type="text" name="firstname" placeholder="John">
+                <label>Last Name</label>
+                <input type="text" name="lastname" placeholder="Doe">
+                <label>Email</label>
+                <input type="text" name="email" placeholder="email">
+                <label>Phone</label>
+                <input type="text" name="phone" placeholder="phone">
+                <label>Photo</label>
+                <input type="file" name="profilephoto" >
+                <label>Address</label>
+                <input type="text" name="address" placeholder="address">
+                <label>Front side of NID</label>
+                <input type="file">
+                <label>Back side of NID</label>
+                <input type="file">
+                <label>Password</label>
+                <input type="password" name="password">
+                <label>Confirm Password</label>
+                <input type="password" name="cpassword">
+            </section>
+          </div>
+          <% if(message){ %>
+            <%=message%>
+            <%}%>
+            <% if(!message){ %>
+            <%}%>
+         <button type="submit" class="btn btn-primary">Submit </button>
+         
+      </div>
+      <br/><br/><br/>
+</div>

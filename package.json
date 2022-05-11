@@ -1,0 +1,32 @@
+{
+  "name": "forcededge",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "test test.js",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eddie2111/ForcedEdge.git"
+  },
+  "author": "Eventizer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eddie2111/ForcedEdge/issues"
+  },
+  "homepage": "https://github.com/Eddie2111/ForcedEdge#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.0.2",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.3.0",
+    "multer": "^1.4.4",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
