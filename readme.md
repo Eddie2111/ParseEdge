@@ -2,33 +2,25 @@
 
 ## Models ##
 
-# nosqlconnection -> mongo connection defined [local]
-# sqlconnection -> mysql connection defined [local]
+- nosqlconnection -> mongo connection defined [Atlas]
+
 
 ## Views ##
 
 # pages
 - Home
-- About
-- Login
-- About
 - Career
-
-# partials
-- _nav -> logged in
-- nav_ -> logged out
-
+- Search
 
 ## Controllers ##
+- bcryption: generates hash to create cookie
+- test: test modules before adding into index
 
 
+# works done #
 
-## works done ##
+### Can search for a vendor by name or service
+### registration takes password but does not encrypts yet.
+### register a vendor.
 
-# core structure built for page routing
-# template rendering set
-# local mongodb connection
-# local mysql connection
-# access token has been defined [not tested]
-# multar has been defined
-# career logs data on local mongo  ->    event_career-> career
+[Work on progress, suggesting changes will help]
