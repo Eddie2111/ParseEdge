@@ -1,19 +1,31 @@
 const express = require ("express");
-
 var Mongo = require('mongodb').MongoClient;
 const session = require('express-session');
-const multer  = require('multer')
-const bcrypt = require('bcrypt');
 var cookieParser = require('cookie-parser');
+
 
 // database call
 const nosqlconnection = require('./model/nosqlconnection');
 
+
 // set up calls
 require('dotenv').config();
-const upload = multer({ dest: 'uploads/' })
 const app = express();
-// set up calls
+const secretKey = require('./controller/bcryption');
+const MongoCli_Request = require("./model/nosqlconnection");
+
+
+// not implemented
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
+// not implemented
+
+
+// database optimization on progress
+const url = `mongodb+srv://${process.env.DBUSERNAME}:${process.env.DBPASSWORD}@${process.env.DBCLUSTER}`;
+MongoCli_Request();
+
+
 
 // Environment setup
 app.use(express.urlencoded({extended: true}));
@@ -26,18 +38,13 @@ app.set('view engine', 'ejs');
 
 
 //sessioning
-const myPlaintextPassword = 's0/\/\P4$$w0rD';     
-const salt = bcrypt.genSaltSync(10);
-const hash = bcrypt.hashSync(myPlaintextPassword, salt);
-
 app.use(cookieParser());
 app.use(session({
-    secret: hash,
+    secret: secretKey,
     saveUninitialized: false,
     resave: false,
-    maxAge: 3600
+    maxAge: 36000
   }))
-
 
  // routes
 
@@ -47,6 +54,8 @@ app.use(session({
     res.render("pages/index");
  });
 
+
+ // registration page route
 app.get("/registration", (req, res) => {
 
       res.render("pages/career", {title: "Career",message:''} );      
@@ -86,6 +95,8 @@ app.post("/registration",(req,res)=>{
     
 });
 
+
+// search page, not required but to test the database
 app.get("/search",(req,res)=>{
   const result={};
   console.log(result.x);
@@ -100,12 +111,12 @@ app.post("/search",(req,res)=>{
       dbo.collection("event_vendors").findOne({firstname:data.name},function(err,result){
         if (err) throw err;
         if (result){
-          console.log(result);
+          //console.log(result);
           res.render("pages/search", {result:result} );
         }
         if (!result){
           const result = {};
-          console.log("No data found");
+          //console.log("No data found");
           res.render("pages/search", {result:result} );
         }
       });
@@ -132,6 +143,7 @@ app.post("/search",(req,res)=>{
 });
         
  // routes
+
 
 
 const port = process.env.PORT;

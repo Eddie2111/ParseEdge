@@ -1,3 +1,5 @@
+// Not used
+
 const mysql         = require('mysql');
 const bcrypt        = require('bcrypt');
 const sqlconnection = require("../model/sqlconnection");
